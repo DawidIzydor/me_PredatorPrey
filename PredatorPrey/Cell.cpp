@@ -196,7 +196,7 @@ void Cell::doMove()
 			if (newy < 0) newy = 0;
 			if (newy >= 10) newy = 9;
 
-			if (newx != x && newy != y)
+			if (newx != x && newy != y && newx != newy)
 			{
 				//std::cout << "Moved from " << x << ", " << y << " to " << newx << ", " << newy << "\n";
 				a->moveAnimal(&(cells->getCellVec().at(newx).at(newy)));
