@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "CellsArray.h"
 #include <random>
+#include <sstream>
+#include <boost/format.hpp>
 
 CellsArray::CellsArray(int x, int y, int initfood, int foodper, int preys, int preds)
 {
@@ -50,4 +52,55 @@ void CellsArray::doMove()
 			b.doMove();
 		}
 	}
+}
+
+void CellsArray::show()
+{
+	auto& vec = cellVec;
+	std::stringstream ss;
+
+	/*for (int i{ 0 }; i < vec.at(0).size(); i++)
+	{
+	ss << "____";
+	}*/
+	ss << "\n";
+	for (auto& a : vec)
+	{
+		ss << "|";
+		for (auto& b : a)
+		{
+			ss << boost::format("%-10i") % b.getResources();
+
+			ss << "|";
+
+		}
+		ss << "\n|";
+		for (auto& b : a)
+		{
+			ss << boost::format("%-10i") % b.predatorsCount();
+			//std::cout << b.predatorsCount();
+			//printf("%5d", b.predatorsCount());
+
+			ss << "|";
+
+		}
+		ss << "\n|";
+		for (auto& b : a)
+		{
+			ss << boost::format("%-10i") % b.preysCount();
+			//std::cout << b.preysCount();
+			//printf("%5d", b.preysCount());
+
+			ss << "|";
+
+		}
+		ss << "\n____\n";
+	}
+	// ", " << b.predatorsCount() << ", " << b.preysCount();
+	/*for (int i{ 0 }; i < vec.at(0).size(); i++)
+	{
+	ss << "_____";
+	}*/
+
+	std::cout << ss.str();
 }

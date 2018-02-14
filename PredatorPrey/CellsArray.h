@@ -17,5 +17,6 @@ public:
 	std::vector<std::vector<Cell>>& getCellVec();
 
 	void doMove();
+	void show();
 };
 
