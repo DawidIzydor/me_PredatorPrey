@@ -10,6 +10,7 @@ class Animal
 {
 
 protected:
+	int age = 0;
 	int HP;
 	int needs;
 	AnimalTypes type;
@@ -24,11 +25,15 @@ public:
 
 	virtual void Eat() = 0;
 
-	int	getNeeds();
-	int getHP();
+	int	getNeeds() const;
+	int getHP() const;
+	int removeHP(int HP);
 
 	AnimalTypes getType();
 
+	void Aging();
 	void Die();
+	void moveAnimal(Cell* destination);
+
 };
 

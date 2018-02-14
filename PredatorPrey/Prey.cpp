@@ -14,6 +14,8 @@ Prey::~Prey()
 
 void Prey::Eat()
 {
+	Aging();
+
 	int eaten = currentCell->eatResources(needs);
 	HP -= needs - eaten;
 }

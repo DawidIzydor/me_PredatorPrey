@@ -140,6 +140,8 @@
   <ItemGroup>
     <ClInclude Include="Animal.h" />
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="CellsArray.h" />
+    <ClInclude Include="defines.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Predator.h" />
     <ClInclude Include="Prey.h" />
@@ -150,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="CellsArray.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Predator.cpp" />
     <ClCompile Include="PredatorPrey.cpp" />

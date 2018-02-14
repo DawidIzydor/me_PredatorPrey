@@ -17,17 +17,40 @@ AnimalTypes Animal::getType()
 	return type;
 }
 
-void Animal::Die()
+void Animal::Aging()
 {
-	HP = 0;
+	age++;
+	if (rand100(gen) < age)
+	{
+		Die();
+	}
 }
 
-int Animal::getNeeds()
+void Animal::Die()
+{
+	HP = -1;
+}
+
+void Animal::moveAnimal(Cell * destination)
+{
+	if (destination != nullptr) {
+		destination->addAnimal(this);
+		currentCell->removeAnimal(this);
+	}
+}
+
+int Animal::getNeeds() const
 {
 	return needs;
 }
 
-int Animal::getHP()
+int Animal::getHP() const
 {
+	return HP;
+}
+
+int Animal::removeHP(int count)
+{
+	HP -= count;
 	return HP;
 }

@@ -1,38 +1,57 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include <random>
 
 #include "Animal.h"
+#include "CellsArray.h"
+#include "defines.h"
 
 class Animal;
 
-using animal_ptr = Animal*;
+class CellsArray;
 
 class Cell
 {
-	std::vector<animal_ptr> animals;
+	CellsArray* cells;
+
+	std::vector<Animal*> animals;
 
 	int resourcesAvaible;
 	int resourcesPer;
 
+	int maxAnims = MAXANIMS;
+
+	int curprey = 0;
+	int curpred = 0;
+	int curanim = 0;
+
+	int x = -1;
+	int y = -1;
+
+
+
 public:
 	Cell() = delete;
-	Cell(int initResources, int resourcesPer);
+	Cell(int initResources, int resourcesPer, CellsArray* cells);
 	~Cell();
 
-	std::vector<animal_ptr>& getAnimals();
+	std::vector<Animal*>& getAnimals();
 
-	int getResources() const;
+	int getResources();
 	int eatResources(int count);
 	int predatorsCount();
 	int preysCount();
+	int animalsCount();
 
-	void moveAnimal(animal_ptr& who, Cell& to);
-	//void removeAnimal(animal_ptr& who);
+	void moveAnimal(Animal*& who, Cell& to) = delete;
+	//void removeAnimal(Animal*& who);
 	void removeAnimal(Animal* who);
-	void addAnimal(animal_ptr& animal);
+	void addAnimal(Animal* animal);
 	void addAnimals(int predators, int preys);
 	void doMove();
 	void cleanUp();
+
+	void setCoords(int x, int y);
 };
 

@@ -5,7 +5,7 @@
 Predator::Predator(Cell* cell, int needs) : Animal(cell, needs)
 {
 	this->type = AnimalTypes::Predator;
-	HP = 2;
+	HP = 3;
 }
 
 Predator::~Predator()
@@ -14,6 +14,8 @@ Predator::~Predator()
 
 void Predator::Eat()
 {
+	Aging();
+
 	for (int a = needs; a > 0; a--) {
 
 		bool ate = false;
