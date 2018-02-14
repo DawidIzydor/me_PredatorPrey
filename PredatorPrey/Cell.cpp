@@ -147,13 +147,14 @@ void Cell::addAnimals(int predators, int preys)
 
 void Cell::doMove()
 {
-
+	/*
 	if (curanim > 0) {
+
 		std::cout << "Move start ("<< x << "," << y << ")\n";
 		std::cout << "\nFood: " << resourcesAvaible << ",";
 		std::cout << "Predators: " << predatorsCount() << ",";
 		std::cout << "Preys: " << preysCount() << std::endl;
-	}
+	}*/
 
 	resourcesAvaible += resourcesPer;
 
@@ -221,14 +222,14 @@ void Cell::doMove()
 	if (resourcesAvaible > 0) {
 		addAnimals(predatorsCount() / 2, preysCount() / 2);
 	}
-
+	/*
 	if (curanim > 0) {
 		std::cout << "Food: " << resourcesAvaible << ",";
 		std::cout << "Predators: " << predatorsCount() << ",";
 		std::cout << "Preys: " << preysCount() << "\n";
 		//std::cout<<
 		std::cout << "Move end\n"<< std::endl;
-	}
+	}*/
 }
 
 void Cell::cleanUp()

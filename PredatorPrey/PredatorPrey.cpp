@@ -8,6 +8,7 @@
 #include "defines.h"
 #include <windows.h>
 #include <fstream>
+#include "Visualize.h"
 
 
 std::random_device rd;
@@ -36,6 +37,7 @@ int main()
 	std::cout << "\n";
 
 	CellsArray cells(10, 10, initfood,initper,initprey,initpred);
+	Visualize viz(&cells);
 
 	long int maxpreds = 0,maxpreys = 0,maxanims = 0,maxfood = 0;
 
@@ -46,6 +48,7 @@ int main()
 	{
 		std::cout << "[Move no. " << i+1 << "]\n";
 		cells.doMove();
+		viz.show();
 		/*if (cell.predatorsCount() > maxpreds)
 		{
 			maxpreds = cell.predatorsCount();
