@@ -20,7 +20,7 @@ class Cell
 	int resourcesAvaible;
 	int resourcesPer;
 
-	int maxAnims = MAXANIMS;
+	const int maxAnims = MAXANIMS;
 
 	int curprey = 0;
 	int curpred = 0;
@@ -29,7 +29,9 @@ class Cell
 	int x = -1;
 	int y = -1;
 
-
+	int statsAnim;
+	int statsPrey;
+	int statsPred;
 
 public:
 	Cell() = delete;
@@ -53,5 +55,9 @@ public:
 	void cleanUp();
 
 	void setCoords(int x, int y);
+
+	int getStatsAnim();
+	int getStatsPrey();
+	int getStatsPred();
 };
 

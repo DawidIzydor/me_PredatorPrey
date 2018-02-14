@@ -50,6 +50,19 @@ void CellsArray::doMove()
 		for (auto& b : a)
 		{
 			b.doMove();
+
+			if (b.getStatsAnim() > statsAnim)
+			{
+				statsAnim = b.getStatsAnim();
+			}
+			if (b.getStatsPred() > statsPred)
+			{
+				statsPred = b.getStatsPred();
+			}
+			if (b.getStatsPrey() > statsPrey)
+			{
+				statsPrey = b.getStatsPrey();
+			}
 		}
 	}
 }
@@ -103,4 +116,19 @@ void CellsArray::show()
 	}*/
 
 	std::cout << ss.str();
+}
+
+int CellsArray::getStatsAnim()
+{
+	return statsAnim;
+}
+
+int CellsArray::getStatsPrey()
+{
+	return statsPrey;
+}
+
+int CellsArray::getStatsPred()
+{
+	return statsPred;
 }

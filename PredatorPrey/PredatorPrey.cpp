@@ -49,6 +49,7 @@ int main()
 		std::cout << "[Move no. " << i+1 << "]\n";
 		cells.doMove();
 		cells.show();
+
 		/*if (cell.predatorsCount() > maxpreds)
 		{
 			maxpreds = cell.predatorsCount();
@@ -75,11 +76,11 @@ int main()
 	std::cout << "Food per turn:" << initper << "\n";
 	std::cout << "Init prey:" << initprey << "\n";
 	std::cout << "Init predators:" << initpred << "\n\n";
-	/*
-	std::cout << "Max preys: " << maxpreys << "\n";
-	std::cout << "Max preds: " << maxpreds << "\n";
-	std::cout << "Max anims: " << maxanims << "\n";
-	std::cout << "Max food: " << maxfood << "\n";*/
+	
+	std::cout << "Max global preys: " << cells.getStatsPrey() << "\n";
+	std::cout << "Max global preds: " << cells.getStatsPred() << "\n";
+	std::cout << "Max global anims: " << cells.getStatsAnim() << "\n";
+	//std::cout << "Max global food: " << maxfood << "\n";
 	std::cout << "\n";
 	system("PAUSE");
 }

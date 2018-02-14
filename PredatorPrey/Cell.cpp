@@ -215,6 +215,8 @@ void Cell::doMove()
 		std::cout << "Type: " << (a->getType() == AnimalTypes::Predator ? "Predator" : "Prey")<<"\n";
 		std::cout << "HP before eat: " << a->getHP() << "\n";*/
 		//std::cout << "HP after eat: " << a->getHP() << "\n";
+
+
 	}
 
 	cleanUp();
@@ -230,7 +232,22 @@ void Cell::doMove()
 		//std::cout<<
 		std::cout << "Move end\n"<< std::endl;
 	}*/
+
+	if (curanim > statsAnim)
+	{
+		statsAnim = curanim;
+	}
+	if (curpred > statsPred)
+	{
+		statsPred = curpred;
+	}
+	if (curprey > statsPrey)
+	{
+		statsPrey = curprey;
+	}
 }
+
+
 
 void Cell::cleanUp()
 {
@@ -262,4 +279,19 @@ void Cell::setCoords(int x, int y)
 			this->y = y;
 		}
 	}
+}
+
+int Cell::getStatsAnim()
+{
+	return statsAnim;
+}
+
+int Cell::getStatsPrey()
+{
+	return statsPrey;
+}
+
+int Cell::getStatsPred()
+{
+	return statsPred;
 }
